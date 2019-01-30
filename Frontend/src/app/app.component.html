@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<ul class="topnav">
+  <li><a routerLink="/">Home</a></li>
+  <li><a routerLink="/profile">Profile</a></li>
+  <li><a routerLink="/friends">Friends</a></li>
+  <li><a routerLink="/chat">Chat</a></li>
+  <li><a routerLink="/notifications">Notifications</a></li>
+  <li><a routerLink="/search">Search here</a></li>
+  <li><a routerLink="/setting">Settings</a></li>
+  <li class="right"><a href="/resetpassword">Forget password</a></li>
+  <li class="right"><a routerLink="/login">SignIn</a></li>
+
+  <li class="right"><a routerLink="/regis" class="active">SignUp</a></li>
+</ul>
+<div class="conatiner">
+<div style="padding:0 16px;">
+    <router-outlet></router-outlet>
+</div>
+</div>
+</body>
+</html>

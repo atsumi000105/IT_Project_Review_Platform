@@ -1,0 +1,56 @@
+<form #workForm="ngForm" class="editForm" novalidate>
+       
+            <div class="tab-pane fade in active">
+                <h4 class="head text-center">{{title}}</h4>
+                <br/>
+                <div class='row'>
+                    <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8'>
+                        <div class="form-group">
+                            <div class="radio">
+                                Type of the land<br>
+                                <input type="checkbox" value="freeland" id="freeland" #freeland="ngModel"  [(ngModel)]="work.freeland" name="freeland"> Free land<br>
+                                <input type="checkbox" value="sheltered" id="sheltered" #sheltered [(ngModel)]="work.sheltered" name="sheltered"> Sheltered<br>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="radio">
+                                    Type of the vehicle can be parked<br>
+                                    <input type="checkbox" value="car" id="" #car="ngModel"  [(ngModel)]="work.car" name="car"> Car<br>
+                                    <input type="checkbox" value="bus" id="bus" #bus="ngModel" [(ngModel)]="work.bus" name="bus">Bus<br>
+                                    <input type="checkbox" value="bicycle" id="bicycle" #bicycle="ngModel" [(ngModel)]="work.bicycle" name="bicycle"> Bicycle<br>
+                                    <input type="checkbox" value="van" id="van" #van="ngModel"  [(ngModel)]="work.van" name=van>Van<br>
+                                    <input type="checkbox" value="lorry" id="lorry" #lorry="ngModel"  [(ngModel)]="work.lorry" name="lorry"> Lorry<br>
+                                    <input type="checkbox" value="other" id="other" #other="ngModel"  [(ngModel)]="work.other" name="other">Other<br>
+                                    
+                            </div>
+                            </div>
+                            <div class="row">
+                                    <div class='col-xs-12 col-sm-6'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="mweight">Maximum weight</label>  
+                                            <input class="form-control input-md" #mweight="ngModel"  id="mweight" name="mweight" type="text" placeholder="weight" [(ngModel)]="work.mweight">   
+                                            
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-12 col-sm-6'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="mheight">Maximum height</label>  
+                                            <input class="form-control input-md" #mheight="ngModel" id="mheight" name="mheight" type="text" placeholder="height" [(ngModel)]="work.mheight">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="control-label" for="vehicles">Maximum number of vehicle</label>  
+                                        <input class="form-control input-md" #vehicles="ngModel"  id="vehicles" name="vehicles" type="text" placeholder="vehicles" [(ngModel)]="work.vehicles">   
+                                        
+                                </div>
+                    </div>
+                </div>
+                <div class="form-group text-center space-20">
+                    <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(workForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+                    <button class="btn btn-outline-rounded btn-info" [disabled]="!workForm.valid" (click)="goToNext(workForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                </div>
+            </div>
+        
+    </form>

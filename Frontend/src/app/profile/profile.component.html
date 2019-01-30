@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="outer-div">
+    <div class="inner-div">
+<div class="row">
+  <div class="col-sm-4" style="width: 300px;height:300px;">
+    <div class="card">
+      <div class="card-body">        
+      <form #imageForm = ngForm >          
+            <img [src]="imageUrl" style="width:200px;height:200px;">
+            <input type="file" #Image accept="image/*"(change)="handleFileInput($event.target.files)">
+      </form>
+     </div>
+    </div>
+    </div>
+    <div class= "row">
+  <div class="col-sm-8" style="width:800px;height:400px;">
+    <div class="card">
+      <div class="card-body">
+       
+        <h6 class="card title">User Name:{{userDetails.firstName}} {{userDetails.lastName}}</h6>
+        <h6 class="card-title">Studied: </h6>
+        <h6 class="card-title">Working Place: </h6>
+        <h6 class="card-title">Birthday:{{userDetails.age}}</h6>
+        <h6 class="card-title">E-mail:{{userDetails.email}} </h6>
+        <button type="button" class="btn btn-primary">Edit</button>
+       </div>
+    </div>
+   </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+
+
+</div>
+
+

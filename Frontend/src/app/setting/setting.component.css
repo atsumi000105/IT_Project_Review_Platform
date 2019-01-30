@@ -1,0 +1,82 @@
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+    background-image: url(F:/HAWK/project-interim/images/sky.jpg);
+    background-size:  100%;
+    padding: 20%;
+  }
+
+/*add css label*/
+.label{
+    width:20%;
+    align-content: center;
+}
+/*add css div*/
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  }
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.btn-primary {
+  background-color: rgb(85, 2, 2);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width:10%;
+  opacity: 0.9;
+}
+
+.btn-primary:hover {
+  opacity:1;
+}
+.btn-primary{border-radius: 12px;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+.btn-edit{
+    background-color: rgb(85, 2, 2);
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+  }
+  
+.btn-edit:hover {
+    opacity:1;
+  }
+  .btn-edit{border-radius: 12px;}
+  .btn-edit{padding: left 50px;
+  }
