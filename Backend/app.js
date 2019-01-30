@@ -17,6 +17,13 @@ app.use(cors({ origin: 'http://localhost:4200' }));
 app.use(passport.initialize());
 app.use('/api', rtsIndex);
 
+app.get('/',function(req,res){
+    console.log("index route called");
+    res.status(200).json({
+        Message: "Hello"
+    });
+});
+
 // error handler
 app.use((err, req, res, next) => {
     if (err.name === 'ValidationError') {
