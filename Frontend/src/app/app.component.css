@@ -1,7 +1,7 @@
 body {margin: 0;}
 
 .container{
-    background-image: url(F:/HAWK/project-interim/images/sky.jpg);
+    background-image: url(../assets/images/sky.jpg);
 }
 
 ul.topnav {
