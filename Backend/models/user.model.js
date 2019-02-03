@@ -15,25 +15,32 @@ var userSchema = new mongoose.Schema({
         required: 'Password can\'t be empty',
         minlength: [4, 'Password must be atleast 4 character long']
     },
-age:{type:Date},
-    freeland : { type:  String  },
-    sheltered: { type:  String  },
-    car: { type:  String  },
-    bus: { type: String  },
-    bicycle:{ type: String  },
-    van: { type:  String },
-    lorry:{ type: String  },
-    other : { type:  String },
-    mweight : { type:  String  },
-    mheight:{ type: String  },
+    user_name: { type: String },
+    email: { type: String },
+    studied: { type: String },
+    work_place: { type: String },
+
+    age: { type: Date },
+    freeland: { type: String },
+    sheltered: { type: String },
+    car: { type: String },
+    bus: { type: String },
+    bicycle: { type: String },
+    van: { type: String },
+    lorry: { type: String },
+    other: { type: String },
+    mweight: { type: String },
+    mheight: { type: String },
     vehicles: { type: String },
-    street:{ type:  String  },
-    city: { type:  String },
-    state: { type:  String  },
-    zip:{ type:  String },
-    saltSecret:{type: String},
-    temptoken:{type : String}
+    street: { type: String },
+    city: { type: String },
+    state: { type: String },
+    zip: { type: String },
+    saltSecret: { type: String },
+    temptoken: { type: String }
 });
+
+
 
 // Custom validation for email
 userSchema.path('email').validate((val) => {
@@ -59,13 +66,12 @@ userSchema.methods.verifyPassword = function (password) {
 };
 
 userSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
+    return jwt.sign({ _id: this._id },
         process.env.JWT_SECRET,
-    {
-        expiresIn: process.env.JWT_EXP
-    });
+        {
+            expiresIn: process.env.JWT_EXP
+        });
 }
-
 
 
 mongoose.model('User', userSchema);
