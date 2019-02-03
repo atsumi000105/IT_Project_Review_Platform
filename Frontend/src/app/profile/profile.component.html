@@ -18,11 +18,11 @@
       <div class="card-body">
        
         <h6 class="card title">User Name:{{userDetails.firstName}} {{userDetails.lastName}}</h6>
-        <h6 class="card-title">Studied: </h6>
-        <h6 class="card-title">Working Place: </h6>
+        <h6 class="card-title">Studied: {{userDetails.studied}}</h6>
+        <h6 class="card-title">Working Place: {{userDetails.work_place}}</h6>
         <h6 class="card-title">Birthday:{{userDetails.age}}</h6>
         <h6 class="card-title">E-mail:{{userDetails.email}} </h6>
-        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-primary" [routerLink]='["/setting"]'>Edit</button>
        </div>
     </div>
    </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import { Http } from '@angular/http';
 import { FormDataService } from '../data/formData.service';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -9,69 +9,82 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class RegserviceService {
-  url="http://localhost:3000/api";
- noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };  
-  
-  constructor(private http: HttpClient,private formDataService: FormDataService) {}
-  
-  storedetails(){
-     return this.http.post(this.url+'/register',this.formDataService.getFormData(),this.noAuthHeader);
-    }
+  url = "http://localhost:3000/api";
+  noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
 
-    login(authCredentials) {
-      console.log(authCredentials);
-      return this.http.post(this.url + '/authenticate', authCredentials,this.noAuthHeader);
-    }
-    getUserProfile() {
-      return this.http.get(this.url + '/userProfile');
-    }
-  rstpw(email){
-    return this.http.put(this.url+'/rstpw',email);
+  user = {
+    "user_name":"req.body.user_name",
+    "email":"req.body.email",
+    "studied":"req.body.studied",
+    "work_place":"req.body.work_place"
   }
 
-  newpassword(token){
-    
-    return this.http.get(this.url+'/resetpassword/'+token);
+  constructor(private http: HttpClient , private formDataService: FormDataService) { }
 
-  }
-  
-  savepassword(password){
-    return this.http.put(this.url+'/savepassword',password);
+ 
+
+  storedetails() {
+    return this.http.post(this.url + '/register', this.formDataService.getFormData(), this.noAuthHeader);
   }
 
-  fromdata(form){
-    return this.http.post(this.url+'/register',form);
-   }
+  login(authCredentials) {
+    console.log(authCredentials);
+    return this.http.post(this.url + '/authenticate', authCredentials, this.noAuthHeader);
+  }
+  getUserProfile() {
+    return this.http.get(this.url + '/userProfile');
+  }
+  rstpw(email) {
+    return this.http.put(this.url + '/rstpw', email);
+  }
 
-    //Helper Methods
-  
-    setToken(token: string) {
-      localStorage.setItem('token', token);
+  putUser(user,id) {
+    return this.http.put(this.url + "/edituser/"+id, user);
+  }
+
+  newpassword(token) {
+
+    return this.http.get(this.url + '/resetpassword/' + token);
+
+  }
+
+  savepassword(password) {
+    return this.http.put(this.url + '/savepassword', password);
+  }
+
+  fromdata(form) {
+    return this.http.post(this.url + '/register', form);
+  }
+
+  //Helper Methods
+
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
+
+  getUserPayload() {
+    var token = this.getToken();
+    if (token) {
+      var userPayload = atob(token.split('.')[1]);
+      return JSON.parse(userPayload);
     }
-  
-    getToken() {
-      return localStorage.getItem('token');
-    }
-  
-    deleteToken() {
-      localStorage.removeItem('token');
-    }
-  
-    getUserPayload() {
-      var token = this.getToken();
-      if (token) {
-        var userPayload = atob(token.split('.')[1]);
-        return JSON.parse(userPayload);
-      }
-      else
-        return null;
-    }
-  
-    isLoggedIn() {
-      var userPayload = this.getUserPayload();
-      if (userPayload)
-        return userPayload.exp > Date.now() / 1000;
-      else
-        return false;
-    }
-   }
+    else
+      return null;
+  }
+
+  isLoggedIn() {
+    var userPayload = this.getUserPayload();
+    if (userPayload)
+      return userPayload.exp > Date.now() / 1000;
+    else
+      return false;
+  }
+}

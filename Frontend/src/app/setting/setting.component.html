@@ -1,66 +1,89 @@
+
+
 <div class="container">
-    <form>
+  <form [formGroup] = "settingForm"  (ngSubmit)="onSubmit()">
 <!--username-->
 <div>
+<div hidden>
   <div>
-    <div>
-      <label><b>User Name</b></label>
-    </div>
-    <div>
-      <input class="form-control" type ="text" name="name" placeholder="current name">
-      <button class="btn-edit" type="edit">Edit</button>
-    </div>
+    <label><b>User Name</b></label>
+  </div>
+  <div>
+    <input class="form-control" type ="text" placeholder="current name" formControlName="name" >
+    <!-- <button class="btn-edit" type="edit">Edit</button> -->
+  </div>
+<br>
+</div>
+<div>
+  <div>
+    <label><b>User Name </b></label>
+  </div>
+  <div>
+    <input class="form-control" type ="text" placeholder="current name" formControlName="user_name" >
+    <!-- <button class="btn-edit" type="edit">Edit</button> -->
+  </div>
 <br>
 </div>
 
 <!--email-->
+<div>
   <div>
-    <div>
-      <label><b>Email</b></label>
-    </div>
-    <div>
-      <input class="form-control" type ="text" name="email" placeholder="current email">
-      <button class="btn-edit"type="edit">Edit</button>
-    </div>
-<br>
+    <label><b>Email</b></label>
   </div>
+  <div>
+    <input class="form-control" type ="text"  placeholder="current email" formControlName="email" >
+    <!-- <button class="btn-edit"type="edit">Edit</button> -->
+  </div>
+<br>
+</div>
 <!--password-->
+<!-- <div>
   <div>
-    <div>
-      <label><b>Password</b></label>
-    </div>
-    <div>
-      <input class="form-control" type ="password" name="password" placeholder="">
-      <button class="btn-edit" type="edit">Edit</button>
-    </div>
-  <br>
+    <label><b>Password</b></label>
   </div>
-<!--school-->
   <div>
-    <div>
-      <label><b>Studied</b></label>
-      </div>
-    <div>
-      <input class="form-control" type ="text" name="school" placeholder="current school">
-      <button class="btn-edit" type="edit">Edit</button>
-    </div>
+    <input class="form-control" type ="password"  placeholder="" formControlName="password"> -->
+    <!-- <button class="btn-edit" type="edit">Edit</button> -->
+  <!-- </div>
 <br>
+</div> -->
+<!--school-->
+<div>
+  <div>
+    <label><b>Studied</b></label>
+    </div>
+  <div>
+    <input class="form-control" type ="text"  placeholder="current school" formControlName="studied">
+    <!-- <button class="btn-edit" type="edit">Edit</button> -->
   </div>
+<br>
+</div>
 
 <!--workplace-->
+<div>
   <div>
-    <div>
-      <label><b>Work Place</b></label>
-    </div>
-    <div>
-      <input class="form-control" type ="text" name="name" placeholder="current workplace">
-        <button class="btn-edit" type="edit">Edit</button>
-    </div>
-  <br>
+    <label><b>Work Place</b></label>
   </div>
+  <div>
+    <input class="form-control" type ="text"  placeholder="current workplace" formControlName="work_place">
+      <!-- <button class="btn-edit" type="edit">Edit</button> -->
+  </div>
+<br>
+</div>
+<div>
+  <div>
+    <label><b>Date of Birth</b></label>
+  </div>
+  <div>
+    <input class="form-control date" type ="date" formControlName="age">
+      <!-- <button class="btn-edit" type="edit">Edit</button> -->
+  </div>
+<br>
+</div>
 </div>
 
-<button class="btn-primary" type="submit">Save</button>
+<button class="btn-primary" type="submit" *ngIf = "settingForm.valid">Save</button>
 </form>
 </div>
+
 <router-outlet></router-outlet>

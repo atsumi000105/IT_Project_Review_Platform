@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegserviceService } from '../servers/regservice.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  userDetails;
+  constructor(private service: RegserviceService) { }
 
   ngOnInit() {
+    this.service.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res['user'];
+        console.log("Pro"+res);
+      },
+      err => { 
+        console.log(err);
+        
+      });
   }
 
 }
