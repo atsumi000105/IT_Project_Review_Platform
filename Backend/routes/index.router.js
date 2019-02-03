@@ -12,6 +12,11 @@ router.get('/getname/:email', ctrlUser.getname);
 router.put('/rstpw',ctrlUser.puttoken);
 router.get('/resetpassword/:token', ctrlUser.rstpw);
 router.put('/savepassword',ctrlUser.savepassword);
+router.put('/edituser/:id',ctrlUser.edituser);
+
+
+
+
 module.exports = router;
 
 
